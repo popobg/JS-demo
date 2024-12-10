@@ -1,7 +1,7 @@
-let undefined_var;
-let null_var = null;
+let undefinedVar;
+let nullVar = null;
 
-console.log(undefined_var === undefined);
-console.log(null_var === null);
-console.log(undefined_var);
-console.log(null_var);
+console.log(undefinedVar === undefined);
+console.log(nullVar === null);
+console.log(undefinedVar);
+console.log(nullVar);

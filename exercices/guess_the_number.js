@@ -1,6 +1,6 @@
 const prompt = require('prompt-sync')();
 
-const random_number = Math.round(Math.random()*100);
+const randomNumber = Math.round(Math.random()*100);
 let flag = false;
 
 for (let i = 0; i < 5; i++) {
@@ -14,11 +14,11 @@ for (let i = 0; i < 5; i++) {
         continue;
     }
 
-    if (guess == random_number) {
+    if (guess == randomNumber) {
         flag = true;
         break;
     }
-    else if (guess < random_number) {
+    else if (guess < randomNumber) {
         console.log('Le nombre à deviner est plus grand que votre proposition.');
         console.log();
     }
@@ -33,5 +33,5 @@ if (flag) {
 }
 else {
     console.log("Dommage, vous n'avez pas trouvé le nombre à l'issue des 5 essais.");
-    console.log(`Le nombre était : ${random_number}.`);
+    console.log(`Le nombre était : ${randomNumber}.`);
 }

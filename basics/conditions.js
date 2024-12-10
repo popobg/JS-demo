@@ -29,9 +29,9 @@ if (age === 35) {
     console.log("Vous avez 35 ans.");
 }
 
-const string_age = '35';
+const stringAge = '35';
 
 // == : égalité malgré une différence de type (cast implicite)
-console.log(string_age == age);
+console.log(stringAge == age);
 // === : égalité stricte
-console.log(string_age === age);
+console.log(stringAge === age);
