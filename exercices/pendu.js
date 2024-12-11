@@ -30,37 +30,37 @@ function fillWordToDisplay(obj, word) {
 }
 
 // MAIN
-function main() {
+(function main() {
     const prompt = require('prompt-sync')();
     const wordToGuess = getRandomWord();
     const guessedLetters = InitializeGuessedLetters(wordToGuess);
     let win = false;
-    const tryNumber = wordToGuess.length * 2;
+    const tries = wordToGuess.length * 2;
 
-    for (let i = 0; i < tryNumber; i++) {
-        const etatActuel = fillWordToDisplay(guessedLetters, wordToGuess);
-        if (!etatActuel.includes('_')) {
+    for (let i = 0; i < tries; i++) {
+        const currentState = fillWordToDisplay(guessedLetters, wordToGuess);
+        if (!currentState.includes('_')) {
             win = true;
             break;
         }
 
-        console.log(`Mot à deviner : ${etatActuel}`);
-        console.log(`Il vous reste ${tryNumber - i} tentatives.`);
+        console.log(`Mot à deviner : ${currentState}`);
+        console.log(`Il vous reste ${tries - i} tentatives.`);
 
-        let proposition;
+        let input;
         do {
-            proposition = prompt('Proposez une lettre ou un tiret : ');
-        } while (!proposition.match(/^[a-zA-Z\-]$/g));
+            input = prompt('Proposez une lettre ou un tiret : ');
+        } while (!input.match(/^[a-zA-Z\-]$/g));
 
-        proposition = proposition.toLowerCase();
+        input = input.toLowerCase();
 
-        if (wordToGuess.includes(proposition)) {
-            guessedLetters[proposition] = true;
-            console.log(`Le caractère ${proposition} est présente dans le mot !`);
+        if (wordToGuess.includes(input)) {
+            guessedLetters[input] = true;
+            console.log(`Le caractère ${input} est présente dans le mot !`);
             console.log();
         }
         else {
-            console.log(`Le caractère ${proposition} n'est pas présente dans le mot.`);
+            console.log(`Le caractère ${input} n'est pas présente dans le mot.`);
             console.log();
         }
     }
@@ -71,6 +71,4 @@ function main() {
     else {
         console.log(`Dommage, le mot état ${wordToGuess}.`);
     }
-};
-
-main();
+})();
