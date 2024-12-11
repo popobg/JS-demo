@@ -1,27 +1,31 @@
-function add(arr, itemAAjouter) {
+// Functions
+function addItem(arr, itemAAjouter) {
     arr.push(itemAAjouter);
 }
 
-function remove(arr, itemASupprimer) {
-    let newArr = arr.filter( (i) => i !== itemASupprimer);
+function removeItem(arr, itemASupprimer) {
+    // on peut aussi utiliser findIndex((i) => i === itemASupprimer) / indexOf(itemASupprimer),
+    // puis arr.splice(index, 1)
+    let newArr = arr.filter((i) => i !== itemASupprimer);
     return newArr;
 }
 
-function isExisting(arr, itemRecherche) {
+function isItemExistingInArray(arr, itemRecherche) {
     return arr.includes(itemRecherche);
 }
 
+// Main
 let produits = [];
-add(produits, "produit 1");
-add(produits, "produit 2");
-add(produits, "produit 3");
+addItem(produits, "produit 1");
+addItem(produits, "produit 2");
+addItem(produits, "produit 3");
 
 console.log(produits);
 
-produits = remove(produits, "produit 2");
-produits = remove(produits, "produit 2");
+produits = removeItem(produits, "produit 2");
+produits = removeItem(produits, "produit 2");
 
 console.log(produits);
 
-console.log(isExisting(produits, "produit 1"));
-console.log(isExisting(produits, "produit 2"));
+console.log(isItemExistingInArray(produits, "produit 1"));
+console.log(isItemExistingInArray(produits, "produit 2"));
