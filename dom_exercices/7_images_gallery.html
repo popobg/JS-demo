@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/images_gallery.css">
+    <title>Gallery</title>
+</head>
+<body>
+    <h1>Exercise 7</h1>
+    <p>Interactive images gallery: when clicking on an image, it zoomed it and takes all your screen.</p>
+
+    <div id="gallery">
+        <img src="./images/puppy_snow.jpg" alt="A puppy in the snow" class="gallery-img">
+        <img src="./images/robin_snow.jpg" alt="A robin in the snow" class="gallery-img">
+        <img src="./images/winter_whiteout.jpg" alt="A landscape in the snow" class="gallery-img">
+    </div>
+
+    <div id="zoomed-img-container" class="hidden">
+        <img id="zoomed-img" src="" alt="Zoomed image">
+    </div>
+
+    <script src="./script/gallery_script.js"></script>
+</body>
+</html>

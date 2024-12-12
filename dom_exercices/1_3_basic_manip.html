@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercises 1 to 3</title>
+</head>
+
+<body>
+    <h1>Exercise 1</h1>
+    <p>When clicking on the button, the paragraph's text change from "untouched button" to "pressed button".</p>
+    <p id="dynamicText">Untouched button.</p>
+
+    <button onclick="handleTextModif()">Click on me</button>
+
+    <h1>Exercise 2</h1>
+    <p>When clicking on the button, the name inside the input is added to the list.</p>
+    <ul>
+    </ul>
+
+    <form>
+        <div>
+            <label for="name">Name : </label>
+            <input type="text" id="name" name="name">
+        </div>
+        <button onclick="handleAddingName()">Add name</button>
+    </form>
+
+    <h1>Exercise 3</h1>
+    <p>Each button change the color of the background.</p>
+    <button onclick="handleBgColor('pink')" style="background-color: pink; border: 2px solid black;">Pink</button>
+    <button onclick="handleBgColor('yellow')" style="background-color: yellow; border: 2px solid black;">Yellow</button>
+    <button onclick="handleBgColor('orange')" style="background-color: orange;  border: 2px solid black;">Orange</button>
+
+    <script>
+        // exercice 1
+        function handleTextModif() {
+            const dynamicText = document.getElementById("dynamicText");
+            dynamicText.innerHTML = "Bouton pressé !";
+        }
+
+        // exercice 2
+        function handleAddingName() {
+            // évite le rechargement de la page due à la requête envoyée par le formulaire
+            event.preventDefault();
+            const value = document.querySelector("input").value;
+            const ul = document.querySelector("ul");
+
+            let li = document.createElement("li");
+            li.textContent = value;
+
+            ul.appendChild(li);
+        }
+
+        // exercice 3
+        function handleBgColor(color) {
+            // ou document.body.style.backgroundColor
+            document.querySelector("body").style.backgroundColor = color;
+        }
+    </script>
+</body>
+
+</html>

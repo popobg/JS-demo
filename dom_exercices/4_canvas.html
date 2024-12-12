@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 4 - canvas</title>
+</head>
+
+<body>
+    <h1>Exercise 4</h1>
+    <p>Draw in my canva!</p>
+    <canvas width="500" height="500" style="border: 2px solid black;"></canvas>
+
+    <script>
+        // exercice 4
+        const canva = document.querySelector('canvas');
+        const ctx = canva.getContext("2d");
+        let isDrawing = false;
+        let oldX = 0;
+        let oldY = 0;
+
+        document.addEventListener('mousedown', (event) => {
+            isDrawing = true;
+            oldX = event.offsetX;
+            oldY = event.offsetY;
+        });
+
+        document.addEventListener('mouseup', (event) => {
+            isDrawing = false;
+        });
+
+        document.addEventListener('mousemove', (event) => {
+            if (!isDrawing) {
+                return;
+            }
+
+            ctx.beginPath();
+            ctx.moveTo(oldX, oldY);
+            ctx.lineTo(event.offsetX, event.offsetY);
+            ctx.stroke();
+
+            oldX = event.offsetX;
+            oldY = event.offsetY;
+        });
+
+        ctx.lineWidth = 2;
+    </script>
+</body>
+
+</html>

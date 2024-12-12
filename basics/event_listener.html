@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example page</title>
+</head>
+<body>
+    <p>Position de la souris à l'écran : <span id="x">0</span>, <span id="y">0</span></p>
+
+    <script>
+        const spanX = document.getElementById("x");
+        const spanY = document.getElementById("y");
+
+        // les actions d'un utilisateur sur la page sont des EVENEMENTS.
+        // Avec JS, on peut les "écouter" et réagir lorsqu'ils surviennent.
+        // le callback de la méthode addEventListener reçoit un "event".
+        document.addEventListener('mousemove', (event) => {
+            spanX.textContent = event.clientX;
+            spanY.textContent = event.clientY;
+        });
+
+        // clique gauche souris appuyé
+        // Concerne tous les clics souris
+        document.addEventListener('mousedown', (event) => {
+            console.log(event);
+        });
+
+        // relâchement du bouton souris
+        document.addEventListener('mouseup', (event) => {
+            console.log(event);
+        });
+
+        // récupère le clic gauche ;
+        // informations différentes que mousedown
+        document.addEventListener('click', (event) => {
+            console.log(event);
+        });
+
+        document.addEventListener('mouseenter', (event) => {
+            console.log(event);
+        });
+
+        document.addEventListener('mouseleave', (event) => {
+            console.log(event);
+        });
+    </script>
+</body>
+</html>

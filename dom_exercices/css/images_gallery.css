@@ -1,0 +1,57 @@
+#gallery {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap:wrap;
+    gap: 2rem;
+}
+
+/* Miniatures */
+.gallery-img {
+    width: 25rem;
+    height: auto;
+    object-fit: contain;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.gallery-img:hover {
+    transform: scale(1.1);
+}
+
+/* Zoomed images */
+.active {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0;
+    pointer-events: none;
+}
+
+#zoomed-img-container img {
+    max-width: 90%;
+    max-height: 90%;
+    transition: transform 0.3s ease-in-out;
+    transform: scale(0.8);
+}
+
+.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Zoom in */
+.active img {
+    transform: scale(1);
+}
+
+.hidden {
+    display: none;
+}

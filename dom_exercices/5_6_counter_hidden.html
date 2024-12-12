@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 5 - interactive counter</title>
+</head>
+<body>
+    <h1>Exercise 5</h1>
+    <p>Interactive counter.</p>
+    <p>Counter: <span>0</span></p>
+
+    <button onclick="handleCount('+')">Increment</button>
+    <button onclick="handleCount('-')">Decrement</button>
+    <button onclick="handleCount()">Reset</button>
+
+    <h1>Exercise 6</h1>
+    <p>Manage hiding text with a button.</p>
+    <p id="hiddenMsg" style="visibility: hidden;">You're a boss!</p>
+    <button id="revealBtn" onclick="handleHiding()">Show message</button>
+
+    <script>
+        // exercice 5
+        let counter = 0;
+
+        function handleCount(op = '') {
+            if (op === '+') {
+                counter++;
+            }
+            else if(op === '-') {
+                counter--;
+            }
+            else {
+                counter = 0;
+            }
+
+            changeSpanText();
+        }
+
+        function changeSpanText() {
+            const span = document.querySelector("span");
+            span.innerHTML = counter;
+        }
+
+        // exercice 6
+        let hidden = true;
+
+        function handleHiding() {
+            const btn = document.getElementById("revealBtn");
+            const hiddenMsg = document.getElementById("hiddenMsg")
+
+            // using visibility: hidden lets the space of the element on the page
+            // display: hidden removes the element from the DOM and erases its space.
+            if (hidden) {
+                hiddenMsg.style.visibility = "visible";
+                hidden = false;
+            }
+            else {
+                hiddenMsg.style.visibility = "hidden";
+                hidden = true;
+            }
+        }
+    </script>
+</body>
+</html>
