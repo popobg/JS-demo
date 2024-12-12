@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/moving_square.css">
+    <title></title>
+</head>
+<body>
+    <div id="movable_square"></div>
+
+    <script>
+        const movableDiv = document.getElementById("movable_square");
+        // taille de chaque mouvement en pixels
+        const step = 30;
+
+        document.addEventListener('keydown', (event) => {
+            const sqr = movableDiv.getBoundingClientRect();
+
+            // Dimensions de l'écran (utilisation du viewport);
+            // Pour rappel, (0, 0) situé dans le coin supérieur gauche de l'écran.
+            const screenWidth = window.innerWidth;
+            const screenHeight = window.innerWidth;
+
+            // Dimensions du carré
+            const rectHeight = sqr.height;
+            const rectWidth = sqr.width;
+
+            // position la plus basse sur l'axe X (plus proche de 0)
+            let top = sqr.top;
+            // position la plus basse sur l'axe Y (plus proche de 0)
+            let left = sqr.left;
+
+            // Déterminer quelle clé du clavier a été pressée
+            switch (event.key) {
+                case "ArrowUp":
+                    // différence "-" car on s'approche de l'origine en allant vers le haut ;
+                    // si top - déplacement < 0, on prend 0 pour position pour le rectangle.
+                    top = Math.max(top - step, 0);
+                    break;
+
+                case "ArrowDown":
+                    // somme "+" car on s'éloigne de l'origine en allant vers le bas de l'écran ;
+                    // on prend la valeur minimale entre top + déplacement et hauteur de l'écran - hauteur du rectangle.
+                    top = Math.min(top + step, screenHeight - rectHeight);
+                    break;
+
+                case "ArrowLeft":
+                    // différence "-" car on s'approche de l'origine en allant vers la gauche ;
+                    // si left - déplacmeent < 0, on prend 0 pour position pour le rectangle.
+                    left = Math.max(left - step, 0);
+                    break;
+
+                case "ArrowRight":
+                    // somme "+" car on s'éloigne de l'origine en allant vers la droite ;
+                    // on prend la valeur minimale entre left + déplacement et largeur de l'écran - largeur du rectangle.
+                    left = Math.min(left + step, screenWidth - rectWidth);
+                    break;
+
+                // ignore les autres clés
+                default:
+                    return;
+            }
+
+            // met-à-jour la position de la div
+            movableDiv.style.top = `${top}px`;
+            movableDiv.style.left = `${left}px`;
+        });
+    </script>
+</body>
+</html>

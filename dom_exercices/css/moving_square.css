@@ -1,0 +1,13 @@
+#movable_square {
+    background-color:aquamarine;
+    border: 2px solid black;
+
+    width: 300px;
+    height: 300px;
+
+    /* autorise les déplacements sur la page en modifiant top et left */
+    position: absolute;
+    /* Position initiale sur la page */
+    top: 50px;
+    left: 50px;
+}
